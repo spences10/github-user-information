@@ -1,0 +1,9 @@
+{
+  "builds": [
+    {
+      "src": "src/card.ts",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [{ "src": "/card.jpg", "dest": "/src/card.ts" }]
+}
