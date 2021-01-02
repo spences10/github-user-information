@@ -6,7 +6,11 @@ export async function getGitHubData() {
     `https://api.github.com/graphql`,
     {
       query,
+      variables: {
+        username: 'spences10',
+      },
     },
+
     {
       headers: {
         'Content-Type': 'application/json',
