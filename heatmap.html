@@ -11,150 +11,55 @@
 
     <link href="style.css" rel="stylesheet" />
 
-    <style>
-      #chart {
-        max-width: 650px;
-        margin: 35px auto;
-      }
-    </style>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script type="text/javascript">
+      google.charts.load('current', { packages: ['calendar'] })
+      google.charts.setOnLoadCallback(drawChart)
 
-    <script>
-      window.Promise ||
-        document.write(
-          '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
+      function drawChart() {
+        var dataTable = new google.visualization.DataTable()
+        dataTable.addColumn({ type: 'date', id: 'Date' })
+        dataTable.addColumn({ type: 'number', id: 'Won/Loss' })
+        dataTable.addRows([
+          [new Date(2012, 3, 13), 37032],
+          [new Date(2012, 3, 14), 38024],
+          [new Date(2012, 3, 15), 38024],
+          [new Date(2012, 3, 16), 38108],
+          [new Date(2012, 3, 17), 38229],
+          // Many rows omitted for brevity.
+          [new Date(2013, 9, 4), 38177],
+          [new Date(2013, 9, 5), 38705],
+          [new Date(2013, 9, 12), 38210],
+          [new Date(2013, 9, 13), 38029],
+          [new Date(2013, 9, 19), 38823],
+          [new Date(2013, 9, 23), 38345],
+          [new Date(2013, 9, 24), 38436],
+          [new Date(2013, 9, 30), 38447],
+        ])
+
+        var chart = new google.visualization.Calendar(
+          document.getElementById('heatmap')
         )
-      window.Promise ||
-        document.write(
-          '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
-        )
-      window.Promise ||
-        document.write(
-          '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
-        )
-    </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
-    <script>
-      // Replace Math.random() with a pseudo-random number generator to get reproducible results in e2e tests
-      // Based on https://gist.github.com/blixt/f17b47c62508be59987b
-      var _seed = 42
-      Math.random = function () {
-        _seed = (_seed * 16807) % 2147483647
-        return (_seed - 1) / 2147483646
-      }
-    </script>
-
-    <script>
-      function generateData(count, yrange) {
-        var i = 0
-        var series = []
-        while (i < count) {
-          var x = 'w' + (i + 1).toString()
-          var y =
-            Math.floor(
-              Math.random() * (yrange.max - yrange.min + 1)
-            ) + yrange.min
-
-          series.push({
-            x: x,
-            y: y,
-          })
-          i++
+        var options = {
+          title: 'Red Sox Attendance',
+          height: '100%',
+          calendar: { cellSize: 20 },
+          noDataPattern: {
+            backgroundColor: '',
+            color: '',
+          },
         }
-        return series
+
+        chart.draw(dataTable, options)
       }
     </script>
   </head>
 
   <body>
-    <div id="chart"></div>
-
-    <script>
-      var options = {
-        series: [
-          {
-            name: 'Metric1',
-            data: generateData(18, {
-              min: 0,
-              max: 90,
-            }),
-          },
-          {
-            name: 'Metric2',
-            data: generateData(18, {
-              min: 0,
-              max: 90,
-            }),
-          },
-          {
-            name: 'Metric3',
-            data: generateData(18, {
-              min: 0,
-              max: 90,
-            }),
-          },
-          {
-            name: 'Metric4',
-            data: generateData(18, {
-              min: 0,
-              max: 90,
-            }),
-          },
-          {
-            name: 'Metric5',
-            data: generateData(18, {
-              min: 0,
-              max: 90,
-            }),
-          },
-          {
-            name: 'Metric6',
-            data: generateData(18, {
-              min: 0,
-              max: 90,
-            }),
-          },
-          {
-            name: 'Metric7',
-            data: generateData(18, {
-              min: 0,
-              max: 90,
-            }),
-          },
-          {
-            name: 'Metric8',
-            data: generateData(18, {
-              min: 0,
-              max: 90,
-            }),
-          },
-          {
-            name: 'Metric9',
-            data: generateData(18, {
-              min: 0,
-              max: 90,
-            }),
-          },
-        ],
-        chart: {
-          height: 350,
-          type: 'heatmap',
-        },
-        dataLabels: {
-          enabled: false,
-        },
-        colors: ['#008FFB'],
-        title: {
-          text: 'HeatMap Chart (Single color)',
-        },
-      }
-
-      var chart = new ApexCharts(
-        document.querySelector('#chart'),
-        options
-      )
-      chart.render()
-    </script>
+    <div id="heatmap" style="width: 100%; height: 100%"></div>
   </body>
 </html>
