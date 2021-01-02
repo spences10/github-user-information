@@ -11,6 +11,9 @@
     "deploy": "vercel deploy",
     "publish": "vercel deploy --prod"
   },
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
   "devDependencies": {
     "@types/node": "^14.14.19",
     "typescript": "^4.1.3"
