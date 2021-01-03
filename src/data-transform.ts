@@ -37,19 +37,18 @@ export const topLanguages = data => {
 
   const langaugesArray = Object.entries(langObject).map(
     ([key, value]: any) => {
-      console.log('=====================')
-      console.log(key, value)
-      console.log('=====================')
-      return [key, value.count]
+      return {
+        id: key,
+        label: key,
+        value: value.count,
+        color: value.color,
+      }
     }
   )
 
   const chartData = langaugesArray
-    .filter(lang => lang[1] > 3)
-    .sort((a, b) => b[1] - a[1])
+    .filter(lang => lang.value > 3 && lang.color)
+    .sort((a, b) => b.value - a.value)
 
-  return {
-    chartData,
-    chartColors: [],
-  }
+  return { chartData }
 }
