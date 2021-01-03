@@ -15,6 +15,19 @@ query GITHUB_TOP_LANGUAGES_QUERY($username: String!) {
         }
       }
     }
+    contributionsCollection {
+      contributionCalendar {
+        totalContributions
+        weeks {
+          contributionDays {
+            color
+            contributionCount
+            date
+            weekday
+          }
+        }
+      }
+    }
   }
 }
 `
