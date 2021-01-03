@@ -1,13 +1,13 @@
 import axios from 'axios'
 import query from './query'
 
-export async function getGitHubData() {
+export async function getGitHubData({ gitHubUser }) {
   const gitHubCall = await axios.post(
     `https://api.github.com/graphql`,
     {
       query,
       variables: {
-        username: 'spences10',
+        username: gitHubUser,
       },
     },
 
