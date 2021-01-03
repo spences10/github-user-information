@@ -19,20 +19,19 @@
       google.charts.setOnLoadCallback(drawChart)
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work', 11],
-          ['Eat', 20],
-          ['Commute', 20],
-          ['Watch TV', 20],
-          ['Sleep', 70],
+          ['Languages', 'Languages Count'],
+          ['JavaScript', 37],
+          ['TypeScript', 13],
+          ['CSS', 12],
+          ['HTML', 7],
         ])
 
         var options = {
-          title: 'My Daily Activities',
+          // title: 'My Languages Split',
           pieHole: 0.4,
           pieSliceText: 'label',
           legend: 'none',
-          colors: ['red', '#004411', '#639', '#536', 'tomato'],
+          colors: ['#f1e05a', '#2b7489', '#563d7c', '#e34c26'],
         }
 
         var chart = new google.visualization.PieChart(
@@ -44,6 +43,8 @@
   </head>
 
   <body>
-    <div id="doughnut" style="width: 900px; height: 500px"></div>
+    <div class="chart-box">
+      <div id="doughnut" style="width: 900px; height: 500px"></div>
+    </div>
   </body>
 </html>
