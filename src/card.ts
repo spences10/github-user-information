@@ -10,9 +10,9 @@ export default async function handler(
   res: ServerResponse
 ) {
   try {
-    const { gitHubUser } = parseRequests(req)
+    const { username } = parseRequests(req)
     // const html = fs.readFileSync('pie.html')
-    const data = await getGitHubData({ gitHubUser })
+    const data = await getGitHubData({ username })
     const { chartData } = topLanguages(data)
     const html = getHtml(chartData)
     res.statusCode = 200

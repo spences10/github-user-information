@@ -1,3 +1,3 @@
 interface ParsedRequests {
-  gitHubUser: string
+  username: string
 }
