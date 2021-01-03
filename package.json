@@ -12,7 +12,8 @@
     "publish": "vercel deploy --prod"
   },
   "dependencies": {
-    "axios": "^0.21.1"
+    "axios": "^0.21.1",
+    "playwright": "^1.7.1"
   },
   "devDependencies": {
     "@types/node": "^14.14.19",
