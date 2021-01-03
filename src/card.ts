@@ -1,10 +1,16 @@
+// import fs from 'fs'
 import { IncomingMessage, ServerResponse } from 'http'
+import { topLanguages } from './data-transform'
+import { getGitHubData } from './github-query'
 
 export default async function handler(
   _req: IncomingMessage,
   res: ServerResponse
 ) {
   try {
+    // const html = fs.readFileSync('pie.html')
+    const data = await getGitHubData()
+    const { chartData, chartColors } = topLanguages(data)
     const html = `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,143 +20,47 @@ export default async function handler(
       content="width=device-width, initial-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Simple HeatMap</title>
+    <title>Simple Pie</title>
 
-    <link href="../../assets/styles.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script type="text/javascript">
+      google.charts.load('current', { packages: ['corechart'] })
+      google.charts.setOnLoadCallback(drawChart)
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Languages', 'Languages Count'],
+          ${chartData.map(
+            valuePair => `['${valuePair[0]}',${valuePair[1]}]`
+          )}
+      ])
 
-    <style>
-      #chart {
-        max-width: 650px;
-        margin: 35px auto;
-      }
-    </style>
-
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
-    <script>
-      // Replace Math.random() with a pseudo-random number generator to get reproducible results in e2e tests
-      // Based on https://gist.github.com/blixt/f17b47c62508be59987b
-      var _seed = 42
-      Math.random = function () {
-        _seed = (_seed * 16807) % 2147483647
-        return (_seed - 1) / 2147483646
-      }
-    </script>
-
-    <script>
-      function generateData(count, yrange) {
-        var i = 0
-        var series = []
-        while (i < count) {
-          var x = 'w' + (i + 1).toString()
-          var y =
-            Math.floor(
-              Math.random() * (yrange.max - yrange.min + 1)
-            ) + yrange.min
-
-          series.push({
-            x: x,
-            y: y,
-          })
-          i++
+        var options = {
+          // title: 'My Languages Split',
+          pieHole: 0.4,
+          pieSliceText: 'label',
+          legend: 'none',
+          colors: ['#f1e05a', '#2b7489', '#563d7c', '#e34c26'],
         }
-        return series
+
+        var chart = new google.visualization.PieChart(
+          document.getElementById('doughnut')
+        )
+        chart.draw(data, options)
       }
     </script>
   </head>
 
   <body>
-    <div id="chart"></div>
-
-    <script>
-      var options = {
-        series: [
-          {
-            name: 'Metric1',
-            data: generateData(18, {
-              min: 0,
-              max: 90,
-            }),
-          },
-          {
-            name: 'Metric2',
-            data: generateData(18, {
-              min: 0,
-              max: 90,
-            }),
-          },
-          {
-            name: 'Metric3',
-            data: generateData(18, {
-              min: 0,
-              max: 90,
-            }),
-          },
-          {
-            name: 'Metric4',
-            data: generateData(18, {
-              min: 0,
-              max: 90,
-            }),
-          },
-          {
-            name: 'Metric5',
-            data: generateData(18, {
-              min: 0,
-              max: 90,
-            }),
-          },
-          {
-            name: 'Metric6',
-            data: generateData(18, {
-              min: 0,
-              max: 90,
-            }),
-          },
-          {
-            name: 'Metric7',
-            data: generateData(18, {
-              min: 0,
-              max: 90,
-            }),
-          },
-          {
-            name: 'Metric8',
-            data: generateData(18, {
-              min: 0,
-              max: 90,
-            }),
-          },
-          {
-            name: 'Metric9',
-            data: generateData(18, {
-              min: 0,
-              max: 90,
-            }),
-          },
-        ],
-        chart: {
-          height: 350,
-          type: 'heatmap',
-        },
-        dataLabels: {
-          enabled: false,
-        },
-        colors: ['#008FFB'],
-        title: {
-          text: 'HeatMap Chart (Single color)',
-        },
-      }
-
-      var chart = new ApexCharts(
-        document.querySelector('#chart'),
-        options
-      )
-      chart.render()
-    </script>
+    <div class="chart-box">
+      <div id="doughnut" style="width: 900px; height: 500px"></div>
+    </div>
   </body>
-</html>
-`
+</html>`
+
     res.statusCode = 200
     res.setHeader('Content-Type', 'text/html')
     res.end(html)
