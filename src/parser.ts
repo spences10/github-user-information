@@ -9,7 +9,7 @@ export function parseRequests(req: IncomingMessage) {
     throw new Error('GitHub User must be a string')
   }
 
-  const parsedRequests: ParsedRequests = { gitHubUser }
+  const parsedRequests = { gitHubUser }
 
   return parsedRequests
 }
