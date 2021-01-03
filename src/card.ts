@@ -10,7 +10,7 @@ export default async function handler(
   try {
     // const html = fs.readFileSync('pie.html')
     const data = await getGitHubData()
-    const { chartData, chartColors } = topLanguages(data)
+    const { chartData } = topLanguages(data)
     const html = `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -34,7 +34,7 @@ export default async function handler(
         var data = google.visualization.arrayToDataTable([
           ['Languages', 'Languages Count'],
           ${chartData.map(
-            valuePair => `['${valuePair[0]}',${valuePair[1]}]`
+            ({ label, value }) => `['${label}',${value}]`
           )}
       ])
 
@@ -43,7 +43,7 @@ export default async function handler(
           pieHole: 0.4,
           pieSliceText: 'label',
           legend: 'none',
-          colors: ['#f1e05a', '#2b7489', '#563d7c', '#e34c26'],
+          colors: [${chartData.map(({ color }) => `'${color}'`)}],
         }
 
         var chart = new google.visualization.PieChart(
