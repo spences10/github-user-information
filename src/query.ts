@@ -1,7 +1,7 @@
 export default `
-query GITHUB_TOP_LANGUAGES_QUERY($username: String!) {
+query GITHUB_USER_DATA_QUERY($username: String!) {
   user(login: $username) {
-    repositories(last: 50, isFork: false, orderBy: {field: UPDATED_AT, direction: ASC}) {
+    repositories(last: 100, isFork: false, orderBy: {field: UPDATED_AT, direction: ASC}) {
       nodes {
         name
         description
