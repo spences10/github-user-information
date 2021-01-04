@@ -6,16 +6,16 @@
   "scripts": {
     "build": "tsc",
     "now-build": "tsc",
-    "watch": "tsc --watch",
-    "dev": "vercel dev",
-    "deploy": "vercel deploy",
-    "publish": "vercel deploy --prod"
+    "watch": "tsc --watch"
   },
   "dependencies": {
-    "axios": "^0.21.1"
+    "axios": "^0.21.1",
+    "chrome-aws-lambda": "^5.5.0",
+    "puppeteer-core": "^5.5.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.19",
+    "@types/puppeteer": "^5.4.2",
     "typescript": "^4.1.3"
   },
   "prettier": {

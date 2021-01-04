@@ -1,11 +1,8 @@
 {
-  "builds": [
-    {
-      "src": "src/card.ts",
-      "use": "@vercel/node"
-    }
+  "routes": [
+    { "src": "/card.jpg", "dest": "/api/card.ts" },
+    { "src": "/contributions.jpg", "dest": "/api/card.ts" }
   ],
-  "routes": [{ "src": "/card.jpg", "dest": "/src/card.ts" }],
   "env": {
     "GITHUB_GRAPHQL_TOKEN": "@github_graphql_token"
   }
