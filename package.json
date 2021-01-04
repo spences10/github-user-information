@@ -13,8 +13,8 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "playwright-aws-lambda": "^0.6.0",
-    "playwright-core": "^1.7.1"
+    "chrome-aws-lambda": "^5.5.0",
+    "puppeteer-core": "^5.5.0"
   },
   "devDependencies": {
     "@types/node": "^14.14.19",
