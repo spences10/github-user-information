@@ -1,10 +1,10 @@
 import { IncomingMessage, ServerResponse } from 'http'
-import { getScreenshot } from './chromium'
-import { writeTempFile } from './create-file'
-import { topLanguages } from './data-transform'
-import { getGitHubData } from './github-query'
-import { getHtml } from './html-templates'
-import { parseRequests } from './parser'
+import { getScreenshot } from '../src/chromium'
+import { writeTempFile } from '../src/create-file'
+import { topLanguages } from '../src/data-transform'
+import { getGitHubData } from '../src/github-query'
+import { getHtml } from '../src/html-templates'
+import { parseRequests } from '../src/parser'
 
 export default async function handler(
   req: IncomingMessage,
