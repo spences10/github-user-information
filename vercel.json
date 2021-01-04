@@ -5,7 +5,7 @@
       "use": "@vercel/node"
     }
   ],
-  "routes": [{ "src": "/card.jpg", "dest": "/src/card.ts" }],
+  "routes": [{ "src": "/card.jpg", "dest": "/api/card.ts" }],
   "env": {
     "GITHUB_GRAPHQL_TOKEN": "@github_graphql_token"
   }

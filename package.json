@@ -5,11 +5,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "now-build": "yarn && tsc",
-    "watch": "tsc --watch",
-    "dev": "vercel dev",
-    "deploy": "vercel deploy",
-    "publish": "vercel deploy --prod"
+    "now-build": "tsc",
+    "watch": "tsc --watch"
   },
   "dependencies": {
     "axios": "^0.21.1",
