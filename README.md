@@ -13,6 +13,9 @@
 Great resource with suggestions here:
 https://www.monterail.com/blog/javascript-libraries-data-visualization
 
+This helped when I installed Puppeteer ans Vercel didn't recognise the
+dependency: https://github.com/alixaxel/chrome-aws-lambda/issues/172
+
 <!-- Links -->
 
 [google heatmat/calender chart]:
