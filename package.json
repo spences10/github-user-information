@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "now-build": "Makefile && tsc",
+    "now-build": "yarn && tsc",
     "watch": "tsc --watch",
     "dev": "vercel dev",
     "deploy": "vercel deploy",
