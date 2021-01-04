@@ -1,5 +1,5 @@
-// import fs from 'fs'
 import { IncomingMessage, ServerResponse } from 'http'
+import { getScreenshot } from './chromium'
 import { writeTempFile } from './create-file'
 import { topLanguages } from './data-transform'
 import { getGitHubData } from './github-query'
@@ -17,17 +17,25 @@ export default async function handler(
     const { chartData } = topLanguages(data)
     const html = getHtml(chartData)
 
+    const isDev = process.env.NOW_REGION === 'dev1'
     const fileName = username || ``
     const filePath = await writeTempFile(fileName, html)
     const fileUrl = `file://${filePath}`
 
-    console.log('=====================')
-    console.log(fileUrl)
-    console.log('=====================')
+    const file = await getScreenshot(fileUrl, isDev)
 
     res.statusCode = 200
-    res.setHeader('Content-Type', 'text/html')
-    res.end(html)
+    res.setHeader('Content-Type', 'image/jpeg')
+    res.setHeader(
+      'Cache-Control',
+      'public,immutable,no-transform,s-max-age=21600,max-age=21600'
+    )
+    res.end(file)
+
+    // === Use this to get HTML output ===
+    // res.statusCode = 200
+    // res.setHeader('Content-Type', 'text/html')
+    // res.end(html)
   } catch (error) {
     res.statusCode = 500
     res.setHeader('Content-Type', 'text/html')
