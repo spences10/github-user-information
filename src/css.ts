@@ -5,6 +5,10 @@ export default function css() {
 body {
   height: 100vh;
   font-family: Lato;
+  background: transparent;
+}
+html {
+  background: transparent;
 }
 
 .chart-box {

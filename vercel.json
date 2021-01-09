@@ -1,6 +1,6 @@
 {
   "routes": [
-    { "src": "/card.jpg", "dest": "/api/card.ts" },
+    { "src": "/card.png", "dest": "/api/card.ts" },
     { "src": "/contributions.jpg", "dest": "/api/card.ts" }
   ],
   "env": {
