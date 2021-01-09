@@ -39,7 +39,6 @@ export function getHtml(chartData) {
           },
           pieSliceText: 'label',
           legend: 'none',
-          colors: [${chartData.map(({ color }) => `'${color}'`)}],
           backgroundColor: { fill: 'transparent' },
           chartArea: {
             left: 0,
@@ -52,6 +51,18 @@ export function getHtml(chartData) {
             fontSize: 25,
           },
           pieSliceBorderColor: 'transparent',
+          slices: {
+            ${chartData.map(({ color, textColor }, i) => {
+              return `
+                ${i}: {
+                  color: '${color}',
+                  textStyle: {
+                    color: '${textColor}',
+                  },
+                }
+              `
+            })}
+          }
         }
 
         var chart = new google.visualization.PieChart(
@@ -69,9 +80,3 @@ export function getHtml(chartData) {
   </body>
 </html>`
 }
-
-// ${chartData.map(p => {
-//           console.log('=====================')
-//           console.log(p)
-//           console.log('=====================')
-//         })}

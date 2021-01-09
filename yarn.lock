@@ -90,6 +90,11 @@ concat-map@0.0.1:
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
   integrity sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=
 
+contrast-color-generator@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/contrast-color-generator/-/contrast-color-generator-0.1.1.tgz#56501cb86088fd61e70bfa7d7141a1a38f6846b5"
+  integrity sha512-hVoHzESrQFuGvzIy1GCLkMJwRD4bLw3uBcBNMbjJmtWneZF7hvRejGhrQs9JS0j3uMrk7PfA4skOwq4481xIJw==
+
 debug@4, debug@^4.1.0, debug@^4.1.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.1.tgz#f0d229c505e0c6d8c49ac553d1b13dc183f6b2ee"

@@ -19,6 +19,9 @@ data should come back formatted like:
   ['HTML', 7],
 ]
 */
+import { Generator } from 'contrast-color-generator'
+
+const generator = new Generator(180)
 
 export const topLanguages = data => {
   const { repositories } = data.user
@@ -42,6 +45,10 @@ export const topLanguages = data => {
         label: key,
         value: value.count,
         color: value.color,
+        textColor:
+          value.color !== null
+            ? generator.generate(value.color).hexStr
+            : '#000000',
       }
     }
   )
