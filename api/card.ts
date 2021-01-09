@@ -12,7 +12,6 @@ export default async function handler(
 ) {
   try {
     const { username } = parseRequests(req)
-    // const html = fs.readFileSync('pie.html')
     const data = await getGitHubData({ username })
     const { chartData } = topLanguages(data)
     const html = getHtml(chartData)
