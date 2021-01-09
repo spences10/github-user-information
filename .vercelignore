@@ -1,6 +1,5 @@
-node_modules
-dist
-heatmap.html
-pie.html
-README.md
-style.css
+# Ignore everything (folders and files) on root only
+/*
+!api
+!vercel.json
+!*.html
