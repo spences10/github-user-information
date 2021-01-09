@@ -11,7 +11,7 @@ export default async function handler(
   res: ServerResponse
 ) {
   try {
-    const { username } = parseRequests(req)
+    const { username, interactive } = parseRequests(req)
     const data = await getGitHubData({ username })
     const { chartData } = topLanguages(data)
     const html = getHtml(chartData)
@@ -23,18 +23,19 @@ export default async function handler(
 
     const file = await getScreenshot(fileUrl, isDev)
 
-    res.statusCode = 200
-    res.setHeader('Content-Type', 'image/jpeg')
-    res.setHeader(
-      'Cache-Control',
-      'public,immutable,no-transform,s-max-age=21600,max-age=21600'
-    )
-    res.end(file)
-
-    // === Use this to get HTML output ===
-    // res.statusCode = 200
-    // res.setHeader('Content-Type', 'text/html')
-    // res.end(html)
+    if (!interactive) {
+      res.statusCode = 200
+      res.setHeader('Content-Type', 'image/jpeg')
+      res.setHeader(
+        'Cache-Control',
+        'public,immutable,no-transform,s-max-age=21600,max-age=21600'
+      )
+      res.end(file)
+    } else {
+      res.statusCode = 200
+      res.setHeader('Content-Type', 'text/html')
+      res.end(html)
+    }
   } catch (error) {
     res.statusCode = 500
     res.setHeader('Content-Type', 'text/html')
