@@ -1,0 +1,10 @@
+*
+
+# general
+!src/
+!yarn.lock
+!package.json
+
+# api
+!api/
+!api/**
