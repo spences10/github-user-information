@@ -1,7 +1,7 @@
 {
   "routes": [
-    { "src": "/card.png", "dest": "/api/card.ts" },
-    { "src": "/contributions.jpg", "dest": "/api/card.ts" }
+    { "src": "/pie.png", "dest": "/api/card.ts" },
+    { "src": "/heat.png", "dest": "/api/card.ts" }
   ],
   "env": {
     "GITHUB_GRAPHQL_TOKEN": "@github_graphql_token"
