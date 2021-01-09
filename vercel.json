@@ -1,4 +1,10 @@
 {
+  "functions": {
+    "api/card.ts": {
+      "memory": 128,
+      "maxDuration": 1
+    }
+  },
   "routes": [
     { "src": "/card.png", "dest": "/api/card.ts" },
     { "src": "/contributions.jpg", "dest": "/api/card.ts" }
