@@ -12,8 +12,7 @@ html {
 }
 
 .chart-box {
-  border: 1px solid #ddd;
-  box-shadow: 0 22px 35px -16px rgba(0, 0, 0, 0.1);
+  display: flex;
 }
 
 #doughnut {

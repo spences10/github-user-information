@@ -131,6 +131,7 @@ table {
 body {
   height: 100vh;
   font-family: Lato;
+  background: transparent;
 }
 
 .chart-box {
