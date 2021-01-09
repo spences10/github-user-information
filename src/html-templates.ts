@@ -40,7 +40,7 @@ export function getHtml(chartData) {
           pieSliceText: 'label',
           legend: 'none',
           colors: [${chartData.map(({ color }) => `'${color}'`)}],
-          backgroundColor: 'transparent',
+          backgroundColor: { fill: 'transparent' },
           chartArea: {
             left: 0,
             top: 30,
@@ -51,6 +51,7 @@ export function getHtml(chartData) {
             color: 'black',
             fontSize: 25,
           },
+          pieSliceBorderColor: 'transparent',
         }
 
         var chart = new google.visualization.PieChart(
