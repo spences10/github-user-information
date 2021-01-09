@@ -4,6 +4,7 @@
 !src/
 !yarn.lock
 !package.json
+!tsconfig.json
 
 # api
 !api/
