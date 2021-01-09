@@ -29,9 +29,37 @@
         var options = {
           // title: 'My Languages Split',
           pieHole: 0.4,
+          pieSliceTextStyle: {
+            color: 'black',
+          },
           pieSliceText: 'label',
           legend: 'none',
           colors: ['#f1e05a', '#2b7489', '#563d7c', '#e34c26'],
+          backgroundColor: 'transparent',
+          chartArea: {
+            left: 0,
+            top: 30,
+            width: '100%',
+            height: '90%',
+          },
+          pieSliceTextStyle: {
+            color: 'black',
+            fontSize: 25,
+          },
+          // slices: {
+          //   0: {
+          //     color: 'black',
+          //     textStyle: {
+          //       color: 'red',
+          //       fontSize: 25,
+          //       // bold: true,
+          //       italic: true,
+          //     },
+          //   },
+          //   1: { color: 'red' },
+          //   2: { color: 'red' },
+          //   3: { color: 'red' },
+          // },
         }
 
         var chart = new google.visualization.PieChart(
@@ -44,7 +72,7 @@
 
   <body>
     <div class="chart-box">
-      <div id="doughnut" style="width: 900px; height: 500px"></div>
+      <div id="doughnut"></div>
     </div>
   </body>
 </html>
