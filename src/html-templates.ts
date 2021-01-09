@@ -69,3 +69,9 @@ export function getHtml(chartData) {
   </body>
 </html>`
 }
+
+// ${chartData.map(p => {
+//           console.log('=====================')
+//           console.log(p)
+//           console.log('=====================')
+//         })}
