@@ -1,11 +1,4 @@
-*
-
-# general
-!src/**
-!yarn.lock
-!package.json
-!tsconfig.json
-
-# api
-!api/
-!api/**
+heatmap.html
+pie.html
+README.md
+style.css
