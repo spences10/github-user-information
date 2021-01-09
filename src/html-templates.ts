@@ -1,3 +1,6 @@
+import css from './css'
+import reset from './css-reset'
+
 export function getHtml(chartData) {
   return `<!DOCTYPE html>
 <html lang="en">
@@ -9,8 +12,10 @@ export function getHtml(chartData) {
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Simple Pie</title>
-
-    <link href="style.css" rel="stylesheet" />
+    <style>
+      ${reset()}
+      ${css()}
+    </style>
     <script
       type="text/javascript"
       src="https://www.gstatic.com/charts/loader.js"
@@ -24,14 +29,28 @@ export function getHtml(chartData) {
           ${chartData.map(
             ({ label, value }) => `['${label}',${value}]`
           )}
-      ])
+        ])
 
         var options = {
           // title: 'My Languages Split',
           pieHole: 0.4,
+          pieSliceTextStyle: {
+            color: 'black',
+          },
           pieSliceText: 'label',
           legend: 'none',
           colors: [${chartData.map(({ color }) => `'${color}'`)}],
+          backgroundColor: 'transparent',
+          chartArea: {
+            left: 0,
+            top: 30,
+            width: '100%',
+            height: '90%',
+          },
+          pieSliceTextStyle: {
+            color: 'black',
+            fontSize: 25,
+          },
         }
 
         var chart = new google.visualization.PieChart(
@@ -44,7 +63,7 @@ export function getHtml(chartData) {
 
   <body>
     <div class="chart-box">
-      <div id="doughnut" style="width: 900px; height: 500px"></div>
+      <div id="doughnut"></div>
     </div>
   </body>
 </html>`
