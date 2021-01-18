@@ -1,7 +1,12 @@
 export default `
 query GITHUB_USER_DATA_QUERY($username: String!) {
   user(login: $username) {
-    repositories(last: 100, isFork: false, orderBy: {field: UPDATED_AT, direction: ASC}) {
+    repositories(
+      last: 100
+      isFork: false
+      orderBy: {field: UPDATED_AT, direction: ASC}
+      privacy: PUBLIC
+    ) {
       nodes {
         name
         description
