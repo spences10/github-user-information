@@ -5,6 +5,7 @@
     { "src": "/heat.png", "dest": "/api/card.ts" }
   ],
   "env": {
-    "GITHUB_GRAPHQL_TOKEN": "@github_graphql_token"
+    "ONE_GRAPH_APP_ID": "@one_graph_app_id",
+    "ONE_GRAPH_PERSIST_QUERY_TOKEN": "@one_graph_persist_query_token"
   }
 }
