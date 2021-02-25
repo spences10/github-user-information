@@ -1,11 +1,12 @@
 import axios from 'axios'
-import query from './query'
+const APP_ID = process.env.ONE_GRAPH_APP_ID
+const QUERY_TOKEN = process.env.ONE_GRAPH_PERSIST_QUERY_TOKEN
 
 export async function getGitHubData({ username }) {
   const gitHubCall = await axios.post(
-    `https://api.github.com/graphql`,
+    `https://serve.onegraph.com/graphql?app_id=${APP_ID}`,
     {
-      query,
+      doc_id: QUERY_TOKEN,
       variables: {
         username,
       },
@@ -14,7 +15,6 @@ export async function getGitHubData({ username }) {
     {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: 'token ' + process.env.GITHUB_GRAPHQL_TOKEN,
       },
     }
   )
