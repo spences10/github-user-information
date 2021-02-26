@@ -1,5 +1,8 @@
 # GitHub User Information
 
+Uses OneGraph persisted query to pull GitHub GraphQL API user
+information
+
 ## Charts
 
 - [Google Heatmat/Calender Chart]
@@ -28,3 +31,5 @@ dependency: https://github.com/alixaxel/chrome-aws-lambda/issues/172
   https://apexcharts.com/docs/chart-types/pie-donut/
 [apex charts heatmap]:
   https://apexcharts.com/docs/chart-types/heatmap-chart/
+[onegraph persisted query]:
+  https://www.onegraph.com/docs/persisted_queries.html
