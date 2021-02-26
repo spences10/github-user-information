@@ -24,7 +24,7 @@ import { Generator } from 'contrast-color-generator'
 const generator = new Generator(180)
 
 export const topLanguages = data => {
-  const { repositories } = data.user
+  const { repositories } = data.gitHub.user
   const langObject = repositories.nodes.reduce(
     (langs, { languages }) => {
       return languages.nodes.reduce((repoLangs, { name, color }) => {
