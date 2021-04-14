@@ -1,5 +1,6 @@
 import axios from 'axios'
 const APP_ID = process.env.ONE_GRAPH_APP_ID
+// Doc id in OpenGraph
 const QUERY_TOKEN = process.env.ONE_GRAPH_PERSIST_QUERY_TOKEN
 
 export async function getGitHubData({ username }) {
