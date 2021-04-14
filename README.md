@@ -1,7 +1,7 @@
 # GitHub User Information
 
 Uses [OneGraph persisted query] to pull GitHub GraphQL API user
-information
+information.
 
 Displays langauge split in a pie chart via the `/pie.png` endpoint by
 passing a GitHub username.
@@ -12,6 +12,37 @@ Example:
 Result:
 
 <img src="https://github-user-information.vercel.app/pie.png?username=spences10" alt="a github users language split in a pie chart"/>
+
+Here's the GitHub API query, it's been stripped down from 100 to the
+last 20 repositories for performance.
+
+```graphql
+query GITHUB_USER_REPOSITORIES($username: String!) {
+  gitHub {
+    user(login: $username) {
+      repositories(
+        last: 20
+        isFork: false
+        orderBy: { field: UPDATED_AT, direction: ASC }
+        privacy: PUBLIC
+      ) {
+        nodes {
+          name
+          description
+          url
+          updatedAt
+          languages(first: 5) {
+            nodes {
+              color
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
 
 ## Charts
 
