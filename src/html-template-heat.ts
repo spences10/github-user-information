@@ -49,7 +49,7 @@ export function getHtml(chartData) {
             },
             cellColor: {
               stroke: '#fafafa',
-              strokeOpacity: 0.5,
+              strokeOpacity: 1,
               strokeWidth: 1,
             },
             underYearSpace: 10, // Bottom padding for the year labels.
@@ -59,7 +59,7 @@ export function getHtml(chartData) {
               bold: true,
             },
             dayOfWeekLabel: {
-              fontName: 'Comic Sans MS',
+              fontName: 'Lato',
               fontSize: 12,
               color: 'white',
               bold: false,
@@ -74,7 +74,7 @@ export function getHtml(chartData) {
             },
           },
           noDataPattern: {
-            backgroundColor: '#1A202C',
+            backgroundColor: '',
             color: '',
           },
         }
