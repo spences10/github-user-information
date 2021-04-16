@@ -23,7 +23,7 @@ export function getHtml(chartData) {
     <script type="text/javascript">
       google.charts.load('current', { packages: ['calendar'] })
       google.charts.setOnLoadCallback(drawChart)
-      // console.log(${chartData})
+
       function drawChart() {
         var dataTable = new google.visualization.DataTable()
         dataTable.addColumn({ type: 'date', id: 'Date' })
