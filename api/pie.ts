@@ -11,8 +11,16 @@ export default async function handler(
   res: ServerResponse
 ) {
   try {
-    const { username, interactive } = parseRequests(req)
-    const data = await getGitHubData({ username })
+    const {
+      username,
+      interactive,
+      contributionsYear,
+    } = parseRequests(req)
+    const data = await getGitHubData({
+      username,
+      query: `pie`,
+      contributionsYear,
+    })
     const { chartData } = topLanguages(data)
     const html = getHtml(chartData)
 
