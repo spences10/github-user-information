@@ -43,27 +43,32 @@ export function getHtml(chartData) {
           calendar: {
             cellSize: 20,
             monthLabel: {
-              fontFamily: 'Lato',
+              fontFamily: 'Space Mono',
               fontSize: 12,
               bold: true,
             },
+            cellColor: {
+              stroke: '#fafafa',
+              strokeOpacity: 0.5,
+              strokeWidth: 1,
+            },
             underYearSpace: 10, // Bottom padding for the year labels.
             yearLabel: {
-              fontName: 'Lato',
+              fontName: 'Space Mono',
               fontSize: 42,
               bold: true,
             },
             dayOfWeekLabel: {
-              fontName: 'Lato',
+              fontName: 'Comic Sans MS',
               fontSize: 12,
-              color: 'black',
+              color: 'white',
               bold: false,
               italic: false,
             },
             dayOfWeekRightSpace: 10,
             daysOfWeek: 'SMTWTFS',
             monthOutlineColor: {
-              stroke: 'rebeccapurple',
+              stroke: '#663399',
               strokeOpacity: 0.8,
               strokeWidth: 2,
             },
