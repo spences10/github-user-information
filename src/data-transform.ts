@@ -82,9 +82,13 @@ data should come back formatted like:
 ]
 */
 
-export const contributions = (weeks: Object) => {
+export const contributions = gqlData => {
   const arrayOfDays = []
-  // @ts-ignore
+
+  const {
+    weeks,
+  } = gqlData.gitHub.user.contributionsCollection.contributionCalendar
+
   for (const { contributionDays } of weeks) {
     const days = contributionDays.map(
       ({ contributionCount, date }) => {
@@ -97,5 +101,8 @@ export const contributions = (weeks: Object) => {
     // @ts-ignore
     arrayOfDays.push(days)
   }
-  return [].concat.apply([], arrayOfDays)
+
+  const contributionsData = [].concat.apply([], arrayOfDays)
+
+  return { contributionsData }
 }
