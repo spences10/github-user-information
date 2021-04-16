@@ -1,4 +1,4 @@
-import css from './css'
+import css from './css-pie'
 import reset from './css-reset'
 
 export function getHtml(chartData) {

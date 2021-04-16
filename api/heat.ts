@@ -3,7 +3,7 @@ import { getScreenshot } from '../src/chromium'
 import { writeTempFile } from '../src/create-file'
 import { contributions } from '../src/data-transform'
 import { getGitHubData } from '../src/github-query'
-import { getHtml } from '../src/html-templates'
+import { getHtml } from '../src/html-template-heat'
 import { parseRequests } from '../src/parser'
 
 export default async function handler(
