@@ -1,7 +1,7 @@
 import { IncomingMessage, ServerResponse } from 'http'
 import { getScreenshot } from '../src/chromium'
 import { writeTempFile } from '../src/create-file'
-import { topLanguages } from '../src/data-transform'
+import { contributions } from '../src/data-transform'
 import { getGitHubData } from '../src/github-query'
 import { getHtml } from '../src/html-templates'
 import { parseRequests } from '../src/parser'
@@ -11,10 +11,18 @@ export default async function handler(
   res: ServerResponse
 ) {
   try {
-    const { username, interactive } = parseRequests(req)
-    const data = await getGitHubData({ username })
-    const { chartData } = topLanguages(data)
-    const html = getHtml(chartData)
+    const {
+      username,
+      interactive,
+      contributionsYear,
+    } = parseRequests(req)
+    const data = await getGitHubData({
+      username,
+      query: `heat`,
+      contributionsYear,
+    })
+    const { contributionsData } = contributions(data)
+    const html = getHtml(contributionsData)
 
     const isDev = process.env.NOW_REGION === 'dev1'
     const fileName = username || ``
