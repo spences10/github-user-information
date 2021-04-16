@@ -102,7 +102,20 @@ export const contributions = gqlData => {
     arrayOfDays.push(days)
   }
 
-  const contributionsData = [].concat.apply([], arrayOfDays)
+  const smoosh = [].concat.apply([], arrayOfDays)
+
+  const contributionsData = smoosh
+    .map(({ day, value }) => {
+      // @ts-ignore
+      return `[new Date(${day.split('-')[0]},${
+        // @ts-ignore
+        day.split('-')[1] - 1 // because JavaScript!
+      },${
+        // @ts-ignore
+        day.split('-')[2]
+      }),${value}]`
+    })
+    .slice(0, smoosh.length - 1)
 
   return { contributionsData }
 }
