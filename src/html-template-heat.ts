@@ -74,7 +74,7 @@ export function getHtml(chartData) {
             },
           },
           noDataPattern: {
-            backgroundColor: '',
+            backgroundColor: '#1A202C',
             color: '',
           },
         }
