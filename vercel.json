@@ -5,6 +5,7 @@
   ],
   "env": {
     "ONE_GRAPH_APP_ID": "@one_graph_app_id",
-    "ONE_GRAPH_PERSIST_QUERY_TOKEN": "@one_graph_persist_query_token"
+    "ONE_GRAPH_PERSIST_QUERY_TOKEN_PIE": "@one_graph_persist_query_token_pie",
+    "ONE_GRAPH_PERSIST_QUERY_TOKEN_HEAT": "@one_graph_persist_query_token_heat"
   }
 }

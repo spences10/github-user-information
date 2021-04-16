@@ -51,7 +51,7 @@ query GITHUB_USER_REPOSITORIES($username: String!) {
 ## User contributions
 
 ```graphql
-query GITHUB_USER_REPOSITORIES(
+query GITHUB_USER_CONTRIBUTIONS(
   $username: String!
   $year: GitHubDateTime!
 ) {
