@@ -142,7 +142,10 @@
       * {
         box-sizing: border-box;
       }
+      /* end reset */
+      @import url('https://fonts.googleapis.com/css?family=Lato:300,400,600,700');
       body {
+        font-family: Lato;
         overflow: hidden;
         position: absolute;
         width: 100%;
@@ -183,7 +186,35 @@
         var options = {
           title: 'GitHub Contributions',
           height: '100%',
-          calendar: { cellSize: 20 },
+          with: '100%',
+          calendar: {
+            cellSize: 20,
+            monthLabel: {
+              fontFamily: 'Lato',
+              fontSize: 12,
+              bold: true,
+            },
+            underYearSpace: 10, // Bottom padding for the year labels.
+            yearLabel: {
+              fontName: 'Lato',
+              fontSize: 42,
+              bold: true,
+            },
+            dayOfWeekLabel: {
+              fontName: 'Lato',
+              fontSize: 12,
+              color: 'black',
+              bold: false,
+              italic: false,
+            },
+            dayOfWeekRightSpace: 10,
+            daysOfWeek: 'SMTWTFS',
+            monthOutlineColor: {
+              stroke: 'rebeccapurple',
+              strokeOpacity: 0.8,
+              strokeWidth: 2,
+            },
+          },
           noDataPattern: {
             backgroundColor: '',
             color: '',
