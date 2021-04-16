@@ -85,7 +85,7 @@ export function getHtml(chartData) {
   </head>
 
   <body>
-    <div id="heatmap" style="width: 1150px; height: 350px" />
+    <div id="heatmap" style="width: 1150px; height: 210px" />
   </body>
 </html>`
 }
