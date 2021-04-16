@@ -16,6 +16,10 @@ Result:
 Here's the GitHub API query, it's been stripped down from 100 to the
 last 20 repositories for performance.
 
+The GitHub queries look like this:
+
+## User language split
+
 ```graphql
 query GITHUB_USER_REPOSITORIES($username: String!) {
   gitHub {
@@ -35,6 +39,33 @@ query GITHUB_USER_REPOSITORIES($username: String!) {
             nodes {
               color
               name
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+## User contributions
+
+```graphql
+query GITHUB_USER_REPOSITORIES(
+  $username: String!
+  $year: GitHubDateTime!
+) {
+  gitHub {
+    user(login: $username) {
+      contributionsCollection(from: $year) {
+        contributionCalendar {
+          totalContributions
+          weeks {
+            contributionDays {
+              color
+              contributionCount
+              date
+              weekday
             }
           }
         }
