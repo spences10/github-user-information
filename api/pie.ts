@@ -29,7 +29,7 @@ export default async function handler(
     const filePath = await writeTempFile(fileName, html)
     const fileUrl = `file://${filePath}`
 
-    const file = await getScreenshot(fileUrl, isDev)
+    const file = await getScreenshot(fileUrl, isDev, `pie`)
 
     if (!interactive) {
       res.statusCode = 200

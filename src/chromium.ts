@@ -31,11 +31,17 @@ async function getOptions(isDev: boolean) {
   return options
 }
 
-export async function getScreenshot(url: string, isDev: boolean) {
+export async function getScreenshot(
+  url: string,
+  isDev: boolean,
+  query: string
+) {
   const options = await getOptions(isDev)
   const browser = await launch(options)
   const page = await browser.newPage()
-  await page.setViewport({ width: 1200, height: 630 })
+  query === `pie`
+    ? await page.setViewport({ width: 1200, height: 630 })
+    : await page.setViewport({ width: 1200, height: 260 })
   await page.goto(url)
   return page.screenshot({ type: 'png', omitBackground: true })
 }
