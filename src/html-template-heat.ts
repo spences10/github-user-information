@@ -37,7 +37,7 @@ export function getHtml(chartData) {
         )
 
         var options = {
-          title: 'GitHub Contributions',
+          title: '',
           height: '100%',
           with: '100%',
           calendar: {
