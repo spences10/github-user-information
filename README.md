@@ -1,24 +1,67 @@
 # GitHub User Information
 
+Show your GitHub languages used and contributions heatmap in a
+serverless generated image.
+
 Uses [OneGraph persisted query] to pull GitHub GraphQL API user
 information.
+
+## Language split
 
 Displays langauge split in a pie chart via the `/pie.png` endpoint by
 passing a GitHub username.
 
 Example:
-`github-user-information.vercel.app/pie.png?username=spences10`
+
+```
+https://github-user-information.vercel.app/pie.png?username=spences10
+```
 
 Result:
 
-<img src="https://github-user-information.vercel.app/pie.png?username=spences10" alt="a github users language split in a pie chart"/>
+<img 
+  src="https://github-user-information.vercel.app/pie.png?username=spences10" 
+  alt="a github users language split in a pie chart"
+/>
+
+There's also an interactive mode to explore the data, add the
+interactive parameter the the URL:
+
+```
+https://github-user-information.vercel.app/pie.png?username=spences10&interactive=true
+```
 
 Here's the GitHub API query, it's been stripped down from 100 to the
 last 20 repositories for performance.
 
-The GitHub queries look like this:
+## Contributions heat map
 
-## User language split
+Displays user GitHub contributions for the given year via the
+`/heat.png` endpoint.
+
+Example:
+
+```
+https://ghui.vercel.app/heat.png?username=spences10&year=2021
+```
+
+Result:
+
+<img 
+  src='https://ghui.vercel.app/heat.png?username=spences10&year=2021' 
+  alt="Scott's GitHub contributions heatmap for 2021" 
+/>
+
+There's also an interactive mode to explore the data, add the
+interactive parameter the the URL:
+
+```
+https://github-user-information.vercel.app/heat.png?username=spences10&interactive=true
+```
+
+## Queries used
+
+The GitHub queries look like this:
 
 ```graphql
 query GITHUB_USER_REPOSITORIES($username: String!) {
