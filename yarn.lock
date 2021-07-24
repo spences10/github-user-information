@@ -78,12 +78,12 @@ chownr@^1.1.1:
   resolved "https://registry.yarnpkg.com/chownr/-/chownr-1.1.4.tgz#6fc9d7b42d32a583596337666e7d08084da2cc6b"
   integrity sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==
 
-chrome-aws-lambda@^5.5.0:
-  version "5.5.0"
-  resolved "https://registry.yarnpkg.com/chrome-aws-lambda/-/chrome-aws-lambda-5.5.0.tgz#5b011d1596020b6ab4b92b010e427da1be6fc628"
-  integrity sha512-nYSDzTsVEVsvIFaUUAUN53ulXBLKSRXFS+eVYZOLZD5SA1If59rqBAiy4raMgorQwXWqjSsjK1SF4As+qzPLqA==
+chrome-aws-lambda@^10.0.0:
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/chrome-aws-lambda/-/chrome-aws-lambda-10.1.0.tgz#ac43b4cdfc1fbb2275c62effada560858099501e"
+  integrity sha512-NZQVf+J4kqG4sVhRm3WNmOfzY0OtTSm+S8rg77pwePa9RCYHzhnzRs8YvNI6L9tALIW6RpmefWiPURt3vURXcw==
   dependencies:
-    lambdafs "^2.0.0"
+    lambdafs "^2.0.3"
 
 concat-map@0.0.1:
   version "0.0.1"
@@ -200,7 +200,7 @@ inherits@2, inherits@^2.0.3, inherits@^2.0.4:
   resolved "https://registry.yarnpkg.com/inherits/-/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
   integrity sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==
 
-lambdafs@^2.0.0:
+lambdafs@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/lambdafs/-/lambdafs-2.0.3.tgz#f2acc53cf4862d29f1df654c327864b4faeb1d4a"
   integrity sha512-5YWwZA/QKk09GdfcJ/ABVO+bpFoGlnTBa5jmyM8Kt9yIzl2lDDVBPLK+Aenq2UEcuDpqxXIYI5zLB7VZNepTrg==
