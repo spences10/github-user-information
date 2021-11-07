@@ -12,7 +12,7 @@
     "axios": "^0.24.0",
     "chrome-aws-lambda": "^10.0.0",
     "contrast-color-generator": "^0.1.1",
-    "puppeteer-core": "^10.0.0"
+    "puppeteer-core": "^11.0.0"
   },
   "devDependencies": {
     "@types/node": "16.11.6",
